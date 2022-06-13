@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="SolutionTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-06-13T17:02:31" hostname="yuanyu-ubuntu" time="0.035">
+  <properties/>
+  <testcase name="cloneGraphExample1()" classname="SolutionTest" time="0.031"/>
+  <testcase name="cloneGraphExample2()" classname="SolutionTest" time="0.001"/>
+  <testcase name="cloneGraphExample3()" classname="SolutionTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
