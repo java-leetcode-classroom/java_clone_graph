@@ -90,7 +90,15 @@ Explanation: This an empty graph, it does not have any nodes.
 
 如下圖
 
-![](https://i.imgur.com/G5qc7jq.png)
+![](https://i.imgur.com/G5qc7jq.png
+
+第2種作法是透過 DFS
+
+每次先建立當下的 copyNode 然後把新舊對應的透過 hashmap 紀錄下來
+
+然後當作完一輪後原本的 reference 就會自動建立好了
+
+![](https://i.imgur.com/k982kib.png)
 
 ## 程式碼
 ```java
@@ -141,6 +149,24 @@ public class Solution {
             }
         }
         return result;
+    }
+    public Node cloneGraphDFS(Node node) {
+        if (node == null) {
+            return null;
+        }
+        HashMap<Node, Node> oldToNew = new HashMap<>();
+        return dfsCopy(node, oldToNew);
+    }
+    public Node dfsCopy(Node node, HashMap<Node, Node> oldToNew) {
+        if (oldToNew.containsKey(node)) {
+            return oldToNew.get(node);
+        }
+        Node newNode = new Node(node.val);
+        oldToNew.put(node, newNode);
+        for (Node nei : node.neighbors) {
+            newNode.neighbors.add(dfsCopy(nei, oldToNew));
+        }
+        return newNode;
     }
 }
 

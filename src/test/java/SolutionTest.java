@@ -30,4 +30,17 @@ class SolutionTest {
     void cloneGraphExample3() {
         Assertions.assertNull(sol.cloneGraph(null));
     }
+
+    @Test
+    void cloneGraphDFSExample1() {
+        Assertions.assertEquals(CreateGraph(new int[][]{{2,4}, {1,3}, {2,4}, {1,3}}), sol.cloneGraphDFS(CreateGraph(new int[][]{{2,4}, {1,3}, {2,4}, {1,3}})));
+    }
+    @Test
+    void cloneGraphDFSExample2() {
+        Assertions.assertEquals(new Node(1), sol.cloneGraphDFS(new Node(1)));
+    }
+    @Test
+    void cloneGraphDFSExample3() {
+        Assertions.assertNull(sol.cloneGraphDFS(null));
+    }
 }

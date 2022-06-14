@@ -46,4 +46,22 @@ public class Solution {
         }
         return result;
     }
+    public Node cloneGraphDFS(Node node) {
+        if (node == null) {
+            return null;
+        }
+        HashMap<Node, Node> oldToNew = new HashMap<>();
+        return dfsCopy(node, oldToNew);
+    }
+    public Node dfsCopy(Node node, HashMap<Node, Node> oldToNew) {
+        if (oldToNew.containsKey(node)) {
+            return oldToNew.get(node);
+        }
+        Node newNode = new Node(node.val);
+        oldToNew.put(node, newNode);
+        for (Node nei : node.neighbors) {
+            newNode.neighbors.add(dfsCopy(nei, oldToNew));
+        }
+        return newNode;
+    }
 }
